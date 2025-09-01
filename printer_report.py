@@ -1,0 +1,103 @@
+import os
+import smtplib
+import time
+from email.message import EmailMessage
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+# === CONFIGURATION ===
+PRINTERS = [
+    "http://10.137.8.6",
+    "http://10.137.8.7",
+    "http://10.137.8.16",
+    "http://10.137.8.19",
+    "http://10.137.8.20",
+    "http://10.137.8.24",
+    "http://10.137.8.26",
+    "http://10.137.8.37",
+    "http://10.137.8.90",
+    "http://10.137.12.4",
+    "http://10.137.32.5",
+    "http://10.137.36.3",
+    "http://10.137.40.10",
+    "http://10.137.40.11",
+    "http://10.137.40.20",
+]
+OUTPUT_FOLDER = "printers"
+
+SMTP_SERVER = "mail.govt.lc"
+SMTP_PORT = 587
+SMTP_USER = "ict.infrastructure@govt.lc"
+SMTP_PASSWORD = "!T Em@1l"
+TO_EMAILS = [
+    "ict.infrastructure@govt.lc",
+]
+
+
+# === BROWSER SETUP (ignores SSL errors) ===
+def get_driver():
+    options = Options()
+    options.headless = True
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--allow-insecure-localhost")
+    options.add_argument("--disable-web-security")
+    return webdriver.Chrome(options=options)
+
+
+# === CAPTURE PRINTER SCREENS ===
+def capture_printer_screenshots():
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+    driver = get_driver()
+
+    for printer in PRINTERS:
+        try:
+            driver.get(printer)
+            time.sleep(7)  # wait for page + AJAX
+            filename = os.path.join(
+                OUTPUT_FOLDER,
+                f"printer_status_{printer.split('//')[-1].replace(':', '_')}.png",
+            )
+            driver.save_screenshot(filename)
+            print(f"✅ Saved screenshot for {printer} → {filename}")
+        except Exception as e:
+            print(f"❌ Failed to capture {printer}: {e}")
+
+    driver.quit()
+
+
+# === SEND EMAIL WITH TLS ===
+def send_email_with_screenshots():
+    msg = EmailMessage()
+    msg["Subject"] = "Daily Printer Status Screenshots"
+    msg["From"] = SMTP_USER
+    msg["To"] = ", ".join(TO_EMAILS)
+    msg.set_content("Attached are the latest printer status screenshots.")
+
+    for file_name in os.listdir(OUTPUT_FOLDER):
+        if file_name.lower().endswith(".png"):
+            file_path = os.path.join(OUTPUT_FOLDER, file_name)
+            with open(file_path, "rb") as f:
+                file_data = f.read()
+            msg.add_attachment(
+                file_data,
+                maintype="image",
+                subtype="png",
+                filename=file_name,
+            )
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.ehlo()
+        server.starttls()  # 🔑 Upgrade to TLS
+        server.ehlo()
+        server.login(SMTP_USER, SMTP_PASSWORD)
+        server.send_message(msg)
+
+    print("📧 Email sent successfully with screenshots attached!")
+
+
+# === MAIN ===
+if __name__ == "__main__":
+    capture_printer_screenshots()
+    send_email_with_screenshots()
