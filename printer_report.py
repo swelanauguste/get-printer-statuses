@@ -1,41 +1,63 @@
 import os
 import smtplib
 import time
+import json
+from datetime import datetime
 from email.message import EmailMessage
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+# === LOAD JSON ===
+with open("printers.json", "r") as f:
+    printers = json.load(f)
+
+
+# === BUILD HTML TABLE FOR EMAIL ===
+def build_printer_table(printers):
+    rows = ""
+    for p in printers:
+        rows += f"""
+        <tr>
+          <td>{p['id']}</td>
+          <td>{p['model']}</td>
+          <td>{p['department']}</td>
+          <td>{p['location']}</td>
+          <td>{p['ip']}</td>
+          <td></td>
+        </tr>
+        """
+    html = f"""
+    <html>
+      <body>
+        <p>Attached are the latest printer status screenshots.</p>
+        <table border="1" cellspacing="0" cellpadding="5">
+          <tr>
+            <th>Serial / ID</th>
+            <th>Printer Model</th>
+            <th>Department</th>
+            <th>Location</th>
+            <th>IP Address</th>
+            <th>IP Message</th>
+          </tr>
+          {rows}
+        </table>
+      </body>
+    </html>
+    """
+    return html
+
+
 # === CONFIGURATION ===
-PRINTERS = [
-    "http://10.137.8.6",
-    "http://10.137.8.7",
-    "http://10.137.8.16",
-    "http://10.137.8.19",
-    "http://10.137.8.20",
-    "http://10.137.8.24",
-    "http://10.137.8.26",
-    "http://10.137.8.37",
-    "http://10.137.8.90",
-    "http://10.137.12.4",
-    "http://10.137.32.5",
-    "http://10.137.36.3",
-    "http://10.137.40.10",
-    "http://10.137.40.11",
-    "http://10.137.40.20",
-]
 OUTPUT_FOLDER = "printers"
 
 SMTP_SERVER = "mail.govt.lc"
 SMTP_PORT = 587
 SMTP_USER = "ict.infrastructure@govt.lc"
 SMTP_PASSWORD = "!T Em@1l"
-TO_EMAILS = [
-    "ict.infrastructure@govt.lc",
-]
+TO_EMAILS = ["swelan.auguste@govt.lc"]
 
 
-# === BROWSER SETUP (ignores SSL errors) ===
+# === BROWSER SETUP (ignores SSL errors, runs headless) ===
 def get_driver():
     options = Options()
     options.headless = True
@@ -51,29 +73,32 @@ def capture_printer_screenshots():
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
     driver = get_driver()
 
-    for printer in PRINTERS:
+    for p in printers:
+        url = f"http://{p['ip']}"
         try:
-            driver.get(printer)
-            time.sleep(7)  # wait for page + AJAX
+            driver.get(url)
+            time.sleep(8)  # wait for page + AJAX
             filename = os.path.join(
                 OUTPUT_FOLDER,
-                f"printer_status_{printer.split('//')[-1].replace(':', '_')}.png",
+                f"printer_status_{p['ip'].replace('.', '_')}.png",
             )
             driver.save_screenshot(filename)
-            print(f"✅ Saved screenshot for {printer} → {filename}")
+            print(f"✅ Saved screenshot for {p['model']} ({p['ip']}) → {filename}")
         except Exception as e:
-            print(f"❌ Failed to capture {printer}: {e}")
+            print(f"❌ Failed to capture {url}: {e}")
 
     driver.quit()
 
 
 # === SEND EMAIL WITH TLS ===
 def send_email_with_screenshots():
+    today = datetime.now().strftime("%d-%m-%Y")
     msg = EmailMessage()
-    msg["Subject"] = "Daily Printer Status Screenshots"
+    msg["Subject"] = f"Daily Printer Status Screenshots – {today}"
     msg["From"] = SMTP_USER
     msg["To"] = ", ".join(TO_EMAILS)
     msg.set_content("Attached are the latest printer status screenshots.")
+    msg.add_alternative(build_printer_table(printers), subtype="html")
 
     for file_name in os.listdir(OUTPUT_FOLDER):
         if file_name.lower().endswith(".png"):
@@ -89,7 +114,7 @@ def send_email_with_screenshots():
 
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.ehlo()
-        server.starttls()  # 🔑 Upgrade to TLS
+        server.starttls()
         server.ehlo()
         server.login(SMTP_USER, SMTP_PASSWORD)
         server.send_message(msg)
