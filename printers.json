@@ -1,100 +1,100 @@
 [
   {
     "id": "3397912620",
-    "model": "XEROX - VERSALINK C605",
-    "department": "TRANSPORT - SOUTH",
-    "location": "VIEUX FORT, NEW DOCK",
+    "model": "Xerox - VersaLink C605",
+    "department": "Transport - South",
+    "location": "Vieux Fort, New Dock",
     "ip": "10.131.4.10"
   },
   {
     "id": "3719818900",
-    "model": "XEROX - VersaLink B405",
-    "department": "ACCOUNTS",
-    "location": "CASTRIES, UNION, GROUND FLOOR",
+    "model": "Xerox - VersaLink B405",
+    "department": "Accounts",
+    "location": "Castries, Union, Ground Floor",
     "ip": "10.137.8.6"
   },
   {
     "id": "CN4ABFH0KH",
     "model": "HP - OfficeJet Pro 9730",
-    "department": "TECHNICAL - NORTH",
-    "location": "CASTRIES, UNION, SECOND FLOOR",
+    "department": "Technical - North",
+    "location": "Castries, Union, Second Floor",
     "ip": "10.137.8.7"
   },
   {
     "id": "3391719054",
-    "model": "XEROX - Versalink C7030",
-    "department": "TECHNICAL - NORTH",
-    "location": "CASTRIES, UNION, FIRST FLOOR",
+    "model": "Xerox - VersaLink C7030",
+    "department": "Technical - North",
+    "location": "Castries, Union, FIRST Floor",
     "ip": "10.137.8.16"
   },
   {
     "id": "USDNM21988",
     "model": "HP - LaserJet 4200",
-    "department": "ACCOUNTS",
-    "location": "CASTRIES, UNION, GROUND FLOOR",
+    "department": "Accounts",
+    "location": "Castries, Union, Ground Floor",
     "ip": "10.137.8.19"
   },
   {
     "id": "G996XC03823",
-    "model": "RICOH - MP 601",
-    "department": "TECHNICAL - NORTH",
-    "location": "CASTRIES, UNION, SECOND FLOOR",
+    "model": "Ricoh - MP 601",
+    "department": "Technical - North",
+    "location": "Castries, Union, Second Floor",
     "ip": "10.137.8.24"
   },
   {
     "id": "MXECM192J0",
     "model": "HP - Color LaserJet flow MFP M880",
-    "department": "TECHNICAL - SOUTH",
-    "location": "VIEUX FORT, LA TOURNEY",
+    "department": "Technical - South",
+    "location": "Vieux Fort, La Tourney",
     "ip": "10.137.12.4"
   },
   {
     "id": "3397912778",
-    "model": "XEROX - VERSALINK C605",
-    "department": "ELECTRICAL - NORTH",
-    "location": "CASTRIES, UNION, FIRST FLOOR",
+    "model": "Xerox - VersaLink C605",
+    "department": "ELECTRICAL - North",
+    "location": "Castries, Union, FIRST Floor",
     "ip": "10.137.8.26"
   },
   {
     "id": "3391977231",
-    "model": "XEROX - Versalink C7030",
-    "department": "MILLENNIUM HIGHWAY PROJECT",
-    "location": "CUL DE SAC",
+    "model": "Xerox - VersaLink C7030",
+    "department": "Millennium Highway Project",
+    "location": "Cul De Sac",
     "ip": "10.137.24.3"
   },
   {
     "id": "3741539992",
-    "model": "XEROX - VersaLink C7100",
-    "department": "DENNERY WORKSHOP",
-    "location": "DENNERY",
+    "model": "Xerox - VersaLink C7100",
+    "department": "Dennery Workshop",
+    "location": "Dennery",
     "ip": "10.137.32.5"
   },
   {
     "id": "3668146413",
-    "model": "XEROX - AltaLink B8055",
+    "model": "Xerox - AltaLink B8055",
     "department": "MATERIAL LAB",
-    "location": "CASTRIES, UNION, MATERIAL LAB",
+    "location": "Castries, Union, MATERIAL LAB",
     "ip": "10.137.36.3"
   },
   {
     "id": "3748911803",
-    "model": "XEROX - AltaLink B8145",
-    "department": "TRANSPORT - NORTH",
-    "location": "CASTRIES, UNION, GROUND FLOOR",
+    "model": "Xerox - AltaLink B8145",
+    "department": "Transport - North",
+    "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.10"
   },
   {
     "id": "35002371GG49",
-    "model": "LEXMARK - MC3224",
-    "department": "TRANSPORT - NORTH",
-    "location": "CASTRIES, UNION, GROUND FLOOR",
+    "model": "Lexmark - MC3224",
+    "department": "Transport - North",
+    "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.11"
   },
   {
     "id": "3374304142",
-    "model": "XEROX - WorkCentre 6027",
-    "department": "TRANSPORT - NORTH",
-    "location": "CASTRIES, UNION, GROUND FLOOR",
+    "model": "Xerox - WorkCentre 6027",
+    "department": "Transport - North",
+    "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.20"
   }
 ]

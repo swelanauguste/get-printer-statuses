@@ -1,11 +1,16 @@
+import json
 import os
 import smtplib
 import time
-import json
 from datetime import datetime
 from email.message import EmailMessage
+
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
+load_dotenv() 
+
 
 # === LOAD JSON ===
 with open("printers.json", "r") as f:
@@ -53,7 +58,7 @@ OUTPUT_FOLDER = "printers"
 SMTP_SERVER = "mail.govt.lc"
 SMTP_PORT = 587
 SMTP_USER = "ict.infrastructure@govt.lc"
-SMTP_PASSWORD = "!T Em@1l"
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 TO_EMAILS = ["swelan.auguste@govt.lc"]
 
 
