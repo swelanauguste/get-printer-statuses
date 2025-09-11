@@ -1,0 +1,16 @@
+[
+  {
+    "id": "3397912620",
+    "model": "Xerox - VersaLink C605",
+    "department": "Transport - South",
+    "location": "Vieux Fort, New Dock",
+    "ip": "10.131.4.10"
+  },
+  {
+    "id": "3719818900",
+    "model": "Xerox - VersaLink B405",
+    "department": "Accounts",
+    "location": "Castries, Union, Ground Floor",
+    "ip": "10.137.8.6"
+  }
+]

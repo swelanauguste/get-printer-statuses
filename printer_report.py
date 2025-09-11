@@ -13,6 +13,7 @@ load_dotenv()
 
 
 # === LOAD JSON ===
+# with open("printers_test.json", "r") as f:
 with open("printers.json", "r") as f:
     printers = json.load(f)
 
@@ -42,7 +43,7 @@ def build_printer_table(printers):
             <th>Department</th>
             <th>Location</th>
             <th>IP Address</th>
-            <th>IP Message</th>
+            <th>Message</th>
           </tr>
           {rows}
         </table>
@@ -59,6 +60,7 @@ SMTP_SERVER = "mail.govt.lc"
 SMTP_PORT = 587
 SMTP_USER = "ict.infrastructure@govt.lc"
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+# TO_EMAILS = ["ict.infrastructure@govt.lc"]
 TO_EMAILS = ["swelan.auguste@govt.lc"]
 
 
@@ -85,7 +87,7 @@ def capture_printer_screenshots():
             time.sleep(8)  # wait for page + AJAX
             filename = os.path.join(
                 OUTPUT_FOLDER,
-                f"printer_status_{p['ip'].replace('.', '_')}.png",
+                f"{p['model'].replace(' ', '_').replace('-', '').lower()}_{p['department'].replace(' ', '_').replace('-', '').lower()}_{p['location'].replace(' ', '_').replace(',', '').lower()}.png",
             )
             driver.save_screenshot(filename)
             print(f"✅ Saved screenshot for {p['model']} ({p['ip']}) → {filename}")
