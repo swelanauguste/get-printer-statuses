@@ -1,17 +1,31 @@
 [
   {
-    "id": "3397912620",
-    "model": "Xerox - VersaLink C605",
-    "department": "Transport-South",
-    "location": "Vieux Fort, New Dock",
-    "ip": "10.131.4.10"
-  },
-  {
     "id": "3719818900",
     "model": "Xerox - VersaLink B405",
     "department": "Accounts",
     "location": "Castries, Union, Ground Floor",
     "ip": "10.137.8.6"
+  },
+  {
+    "id": "USDNM21988",
+    "model": "HP - LaserJet 4200",
+    "department": "Accounts",
+    "location": "Castries, Union, Ground Floor",
+    "ip": "10.137.8.19"
+  },
+  {
+    "id": "CNBRR3F4CW",
+    "model": "HP - Color Laser Jet Pro MFP 4301fdn",
+    "department": "Accounts",
+    "location": "Castries, Union, Second Floor",
+    "ip": "10.137.8.10"
+  },
+  {
+    "id": "CNBRSCM09C",
+    "model": "HP - Color Laser Jet Pro MFP 4301fdw",
+    "department": "Accounts",
+    "location": "Castries, Union, Ground Floor",
+    "ip": "10.137.8.10"
   },
   {
     "id": "CN4ABFH0KH",
@@ -21,19 +35,20 @@
     "ip": "10.137.8.7"
   },
   {
+    "id": "3942939638",
+    "model": "XEROX - VersaLink B7035",
+    "department": "Administration",
+    "location": "Castries, Union, Second Floor",
+    "ip": "10.137.8.90"
+  },
+  {
     "id": "3391719054",
     "model": "Xerox - VersaLink C7030",
     "department": "Technical-North",
     "location": "Castries, Union, FIRST Floor",
     "ip": "10.137.8.16"
   },
-  {
-    "id": "USDNM21988",
-    "model": "HP - LaserJet 4200",
-    "department": "Accounts",
-    "location": "Castries, Union, Ground Floor",
-    "ip": "10.137.8.19"
-  },
+  
   {
     "id": "G996XC03823",
     "model": "Ricoh - MP 601",
@@ -77,12 +92,27 @@
     "ip": "10.137.36.3"
   },
   {
+    "id": "3374304444",
+    "model": "XEROX - WorkCentre 6027",
+    "department": "Transport-South",
+    "location": "Vieux Fort, New Dock",
+    "ip": "10.131.4.8"
+  },
+  {
+    "id": "3397912620",
+    "model": "Xerox - VersaLink C605",
+    "department": "Transport-South",
+    "location": "Vieux Fort, New Dock",
+    "ip": "10.131.4.10"
+  },
+  {
     "id": "3748911803",
     "model": "Xerox - AltaLink B8145",
     "department": "Transport-North",
     "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.10"
-  },
+  },  
+
   {
     "id": "35002371GG49",
     "model": "Lexmark - MC3224",
@@ -96,5 +126,12 @@
     "department": "Transport-North",
     "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.20"
+  },
+  {
+    "id": "3359248651",
+    "model": "XEROX - VersaLink C405",
+    "department": "Administration",
+    "location": "Castries, Union, Second Floor",
+    "ip": "10.137.8.12"
   }
 ]
