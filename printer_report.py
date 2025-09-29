@@ -72,6 +72,9 @@ def get_driver():
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--allow-insecure-localhost")
     options.add_argument("--disable-web-security")
+    options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
     return webdriver.Chrome(options=options)
 
 
