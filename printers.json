@@ -28,11 +28,11 @@
     "ip": "10.137.8.10"
   },
   {
-    "id": "CN4ABFH0KH",
-    "model": "HP - OfficeJet Pro 9730",
-    "department": "Technical-North",
+    "id": "CNB1P5BC2F",
+    "model": "HP - Laser MFP 137fnw",
+    "department": "Administration",
     "location": "Castries, Union, Second Floor",
-    "ip": "10.137.8.7"
+    "ip": "10.137.8.15"
   },
   {
     "id": "3942939638",
@@ -41,6 +41,35 @@
     "location": "Castries, Union, Second Floor",
     "ip": "10.137.8.90"
   },
+  {
+    "id": "3359248651",
+    "model": "XEROX - VersaLink C405",
+    "department": "Administration",
+    "location": "Castries, Union, Second Floor",
+    "ip": "10.137.8.12"
+  },
+  {
+    "id": "3397912778",
+    "model": "Xerox - VersaLink C605",
+    "department": "Electrical-North",
+    "location": "Castries, Union, First Floor",
+    "ip": "10.137.8.26"
+  },
+  {
+    "id": "3741539992",
+    "model": "Xerox - VersaLink C7100",
+    "department": "Dennery Workshop",
+    "location": "Dennery",
+    "ip": "10.137.32.5"
+  },
+  {
+    "id": "CN4ABFH0KH",
+    "model": "HP - OfficeJet Pro 9730",
+    "department": "Technical-North",
+    "location": "Castries, Union, Second Floor",
+    "ip": "10.137.8.7"
+  },
+ 
   {
     "id": "3391719054",
     "model": "Xerox - VersaLink C7030",
@@ -64,25 +93,11 @@
     "ip": "10.137.12.4"
   },
   {
-    "id": "3397912778",
-    "model": "Xerox - VersaLink C605",
-    "department": "Electrical-North",
-    "location": "Castries, Union, First Floor",
-    "ip": "10.137.8.26"
-  },
-  {
     "id": "3391977231",
     "model": "Xerox - VersaLink C7030",
     "department": "Millennium Highway Project",
     "location": "Cul De Sac",
     "ip": "10.137.24.3"
-  },
-  {
-    "id": "3741539992",
-    "model": "Xerox - VersaLink C7100",
-    "department": "Dennery Workshop",
-    "location": "Dennery",
-    "ip": "10.137.32.5"
   },
   {
     "id": "3668146413",
@@ -126,12 +141,6 @@
     "department": "Transport-North",
     "location": "Castries, Union, Ground Floor",
     "ip": "10.137.40.20"
-  },
-  {
-    "id": "3359248651",
-    "model": "XEROX - VersaLink C405",
-    "department": "Administration",
-    "location": "Castries, Union, Second Floor",
-    "ip": "10.137.8.12"
   }
+
 ]

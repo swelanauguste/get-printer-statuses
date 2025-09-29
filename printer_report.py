@@ -60,8 +60,8 @@ SMTP_SERVER = "mail.govt.lc"
 SMTP_PORT = 587
 SMTP_USER = "ict.infrastructure@govt.lc"
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
-TO_EMAILS = ["ict.infrastructure@govt.lc"]
-# TO_EMAILS = ["swelan.auguste@govt.lc"]
+# TO_EMAILS = ["ict.infrastructure@govt.lc"]
+TO_EMAILS = ["swelan.auguste@govt.lc"]
 
 
 # === BROWSER SETUP (ignores SSL errors, runs headless) ===
