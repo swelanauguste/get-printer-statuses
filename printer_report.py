@@ -67,7 +67,7 @@ TO_EMAILS = ["swelan.auguste@govt.lc"]
 # === BROWSER SETUP (ignores SSL errors, runs headless) ===
 def get_driver():
     options = Options()
-    options.headless = True
+    # options.headless = True
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--allow-insecure-localhost")
@@ -75,6 +75,8 @@ def get_driver():
     options.add_argument('--disable-gpu')
     options.add_argument('--headless')
     options.add_argument('--no-sandbox')
+    options.add_argument('--remote-debugging-port=9222')
+    service = Service(ChromeDriverManager().install())
     return webdriver.Chrome(options=options)
 
 
