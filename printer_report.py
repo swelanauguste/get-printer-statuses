@@ -8,8 +8,10 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-load_dotenv() 
+load_dotenv()
 
 
 # === LOAD JSON ===
@@ -72,10 +74,11 @@ def get_driver():
     options.add_argument("--ignore-certificate-errors")
     options.add_argument("--allow-insecure-localhost")
     options.add_argument("--disable-web-security")
-    options.add_argument('--disable-gpu')
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--remote-debugging-port=9222')
+    options.add_argument("--disable-gpu")
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--remote-debugging-port=9222")
     service = Service(ChromeDriverManager().install())
     return webdriver.Chrome(options=options)
 
